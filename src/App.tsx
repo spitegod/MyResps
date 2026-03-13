@@ -9,6 +9,11 @@ function App() {
     setTask('')
   }
 
+  const onDeleteBtnHandler = (indexToDelete: number) => {
+    setTasks(tasks.filter((_, index) => index !== indexToDelete))
+  }
+
+
   return (
     <>
       <h1>MyResps</h1>
@@ -21,6 +26,7 @@ function App() {
       {tasks.map((taskItem, index) => (
         <div key={index}>
           <p>{taskItem.task}</p>
+          <button onClick={() => onDeleteBtnHandler(index)}>Delete</button>
         </div>
       ))}
     </>
